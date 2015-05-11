@@ -28,7 +28,7 @@ get "/movies/:id" do
 end
 
 post "/movies" do
-	db.execute("INSERT INTO movies (title, rating) VALUES (?,?);", params[:movie])
+	db.execute("INSERT INTO movies (title, rating) VALUES (?,?);", params[:title], params[:rating])
 	latest_entry = db.execute("SELECT max(id), title, rating FROM movies;")
 	erb :show, locals: {movie: latest_entry[0]}
 end

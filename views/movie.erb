@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href = "../public/styles.css" rel = "stylesheet" type ="text/css"/>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 	<title></title>
 </head>
 <body>
-<form action = "/movie" method="POST">
-	<input type = "text" name = "title">
+<form action = "/movies" method="POST">
+	<input type = "text" name = "title" placeholder = "title">
 	<select name = "rating">
-		<option value = "awesome">
-		<option value = "rotten"> 
-		<option value = "time-consuming">
-		<option value = "mediocre" selected> 
+		<option value = "awesome">awesome</option>
+		<option value = "rotten">rotten</option>
+		<option value = "time-consuming">time_consuming</option>
+		<option value = "mediocre" selected>mediocre</option>
 	</select>
-	<input type = "text" name = "img_url"> 
+	<input type = "text" name = "img_url" placeholder = "image url"> 
 <button>submit</button>
 </form>
 
-<if (movies) %>
+<% if (movies) %>
 <ul> 
-	<% movies.each do |item| %> 
+	<% movies.each do |movie| %> 
 		<li><a href="movies/<%= movie[0]%>"><%= movie[1] %></a></li>
 	<% end %> 
 </ul>

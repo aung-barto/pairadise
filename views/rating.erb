@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<% if (movies) %>
+	<ul> 
+		<% movies.each do |movie| %> 
+			<li><a href="movies/<%= movie[0]%>"><%= movie[1] %></a></li>
+		<% end %> 
+	</ul>
+	<% end %> 
+
+</body>
+</html>

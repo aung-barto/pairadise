@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<link href = "../public/styles.css" rel = "stylesheet" type ="text/css"/>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<title><%= movie[1] %></title>
 </head>
 <body>
 
@@ -13,7 +15,13 @@
 	<form action = "/movies/<%= movie[0] %>" method = "POST" > 
 	<input type = "hidden" name = "_method" value = "PUT" > 
 	<input type = "text" name = "new_title" value = "<%= movie[1] %>"> 
-	<input type = "text" name = "new_rating" value = "<%= movie[2] %>"> 
+	<select name = "new_rating">
+		<option value = "<%= movie[2] %>" selected> <%= movie[2] %></option>
+		<option value = "awesome">awesome</option>
+		<option value = "rotten">rotten</option>
+		<option value = "time-consuming">time_consuming</option>
+		<option value = "mediocre">mediocre</option>
+	</select>
 	<button> update</button>
 	</form>
 

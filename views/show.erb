@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1><%= movie[1] %> has an rating of <%= movie[2] %></h1>
+	
+	<img src = "<%= movie[3] %>">
+
+	<form action = "/movies/<%= movie %>" method = "POST" > 
+	<input type = "hidden" name = "_method" value = "PUT" > 
+	<input type = "text" name = "new_title" value = "<%= movie[1] %>"> 
+	<input type = "text" name = "new_rating" value = "<%= movie [2] %>"> 
+	<button> update</button>
+	</form>
+
+	<form action = "/movies/<%= movie[0] %>" method = "POST" > 
+	<input type = "hidden" name = "_method" value="DELETE">
+	<button>delete</button>
+	</form>
+
+</body>
+</html>

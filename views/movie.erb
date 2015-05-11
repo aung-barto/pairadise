@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form action = "/movie" method="POST">
+	<input type = "text" name = "title">
+	<select name = "rating">
+		<option value = "awesome">
+		<option value = "rotten"> 
+		<option value = "time-consuming">
+		<option value = "mediocre" selected> 
+	</select>
+	<input type = "text" name = "img_url"> 
+<button>submit</button>
+</form>
+
+<if (movies) %>
+<ul> 
+	<% movies.each do |item| %> 
+		<li><a href="movies/<%= movie[0]%>"><%= movie[1] %></a></li>
+	<% end %> 
+</ul>
+<% end %> 
+
+</body>
+</html>

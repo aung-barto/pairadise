@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href = "../public/styles.css" rel = "stylesheet" type ="text/css"/>
+	<link href = "../styles.css" rel = "stylesheet" type ="text/css"/>
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 	<title><%= movie[1] %></title>
 </head>
@@ -10,7 +10,8 @@
 	<h1><%= movie[1] %> has an rating of <%= movie[2] %></h1>
 
 	<img src = "<%= movie[3] %>">
-	<a href = "/">go home</a>
+	<a href = "/">go home</a><br>
+	<a href = "/movies/rating/<%= movie[2] %>">see other <%= movie[2] %> movies </a>
 
 	<form action = "/movies/<%= movie[0] %>" method = "POST" > 
 	<input type = "hidden" name = "_method" value = "PUT" > 
@@ -22,6 +23,8 @@
 		<option value = "time-consuming">time_consuming</option>
 		<option value = "mediocre">mediocre</option>
 	</select>
+	<input type = "text" name = "new_image" value = "<%= movie[3] %>"> 
+
 	<button> update</button>
 	</form>
 

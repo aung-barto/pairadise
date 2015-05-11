@@ -34,14 +34,14 @@ end
 #get all movies by rating
 get "/movies/rating/:rating" do
 	rating = params[:rating]
-	db.execute("SELECT * FROM movies WHERE rating = ?", rating)
+	movies_list = db.execute("SELECT * FROM movies WHERE rating = ?", rating)
 	erb :rating, locals: {movies: movies_list}
 end
 
 #get info from form and add into database
 post "/movies" do
-	db.execute("INSERT INTO movies (title, rating) VALUES (?,?);", params[:title], params[:rating])
-	latest_entry = db.execute("SELECT max(id), title, rating FROM movies;")
+	db.execute("INSERT INTO movies (title, rating, img_url) VALUES (?,?,?);", params[:title], params[:rating], params[:img_url])
+	latest_entry = db.execute("SELECT max(id), title, rating, img_url FROM movies;")
 	erb :show, locals: {movie: latest_entry[0]}
 end
 
@@ -50,7 +50,8 @@ put "/movies/:id" do
 	id = params[:id].to_i
 	new_title = params[:new_title]
 	new_rating = params[:new_rating]
-	db.execute("UPDATE movies SET title = ?, rating = ? WHERE id = ?", new_title, new_rating, id)
+	new_image = params[:new_image]
+	db.execute("UPDATE movies SET title = ?, rating = ?, img_url =? WHERE id = ?", new_title, new_rating, new_image, id)
 	redirect("/movies")
 end
 
